@@ -1,0 +1,35 @@
+<%- include ../layouts/header.ejs %>
+
+<% if (messages.error) { %>
+ <p style="color:red"><%- messages.error %></p>
+<% } %>
+
+<% if (messages.success) { %>
+ <p style="color:green"><%- messages.success %></p>
+<% } %>
+
+<table>
+ <tr>
+  <th>Patient_id </th>
+  <th>Admin_date</th>
+  <th>Sex</th>
+  <th>Dob</th>  
+  <th>Patient_name</th> 
+  <th>P_prescription_id</th> 
+ </tr> 
+
+ <% if (data) { %>
+ <% data.forEach(function(patient){ %>
+  <tr>
+   <td><%= patient.Patient_id %></td>
+   <td><%= patient.Admin_date %></td>
+   <td><%= patient.Sex %></td>
+   <td><%= patient.Dob %></td>
+   <td><%= patient.Patient_name %></td>
+   <td><%= patient.P_prescription_id %></td>
+  </tr>
+ <% }) %>
+ <% } %>
+</table>
+
+<%- include ../layouts/footer.ejs %>
